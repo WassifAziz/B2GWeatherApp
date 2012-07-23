@@ -1,0 +1,185 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color : #61B4CF;
+}
+.container {
+    font: 14px/1.3 'Open Sans Condensed',sans-serif; 
+    position: absolute;
+    top: 50%;
+    margin-top: -200px;/* half of #content height*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+a, a:visited {
+    color: #1C4F64;
+    outline: medium none;
+}
+a:hover {
+    text-decoration: none;
+}
+section, footer, header {
+    display: block;
+}
+header h1 {
+    color: #518191;
+    font: 32px 'Oleo+script',cursive;
+    padding-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+#clouds {
+    background: url("../assets/img/cloud1.png") no-repeat scroll 0 0 transparent;
+    height: 145px;
+    left: 50%;
+    margin-left: -542px;
+    position: absolute;
+    top: 250px;
+    width: 222px;
+    z-index: -1;
+}
+#clouds:before {
+    background: url("../assets/img/cloud2.png") no-repeat scroll 0 0 transparent;
+    content: "";
+    height: 102px;
+    position: absolute;
+    right: -710px;
+    top: -125px;
+    width: 156px;
+}
+#clouds:after {
+    background: url("../assets/img/cloud3.png") no-repeat scroll 0 0 transparent;
+    content: "";
+    height: 74px;
+    position: absolute;
+    right: -750px;
+    top: 325px;
+    width: 114px;
+}
+
+#weather {
+    height: 220px;
+    left: 0;
+    list-style: none outside none;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 100%;
+}
+
+#weather:before {
+    background: url("../assets/img/preloader.gif") no-repeat scroll center center #111111;
+    border: 1px solid #000000;
+    border-radius: 50% 50% 50% 50%;
+    box-shadow: 0 1px 2px #444444;
+    content: "";
+    height: 44px;
+    left: 50%;
+    margin: -22px 0 0 -22px;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    width: 44px;
+}
+#weather.error:before {
+    display: none;
+}
+#weather.error {
+    font-size: 20px;
+    text-align: center;
+}
+#weather.loaded #scroller, #weather.loaded .arrow {
+    display: block;
+}
+#weather.loaded:before {
+    display: none;
+}
+#weather.loaded {
+
+}
+#weather.first a.previous, #weather.last a.next {
+    display: none;
+}
+#scroller {
+    left: 0;
+    list-style: none outside none;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 100%;
+}
+#scroller li {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+#scroller li img {
+    display: block;
+    margin: 35px auto 0;
+    height: 150px;
+    padding-top: 70px;
+}
+#scroller li .day {
+    color: #DCF0F6;
+    font-size: 15px;
+    padding-top: 20px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
+#scroller li .day b {
+    color: #0F3642;
+    font-weight: normal;
+}
+#scroller li .cond {
+    bottom: -52px;
+    color: #424242;
+    font-size: 24px;
+    position: absolute;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+    width: 100%;
+}
+#scroller li .cond b {
+    text-transform: uppercase;
+}
+#scroller, .arrow {
+    display: none;
+}
+.arrow {
+    background: url("../assets/img/arrows.png") no-repeat scroll 0 0 transparent;
+    height: 45px;
+    margin-top: -45px;
+    opacity: 0.6;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -99999px;
+    top: 100%;
+    width: 34px;
+}
+.arrow:hover {
+    opacity: 1;
+}
+.arrow.previous {
+    left: 20px;
+}
+.arrow.next {
+    background-position: right top;
+    right: 20px;
+}
+p.location {
+    color: #296C81;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 70px;
+}
+p.location b {
+    color: #569CB3;
+}
+

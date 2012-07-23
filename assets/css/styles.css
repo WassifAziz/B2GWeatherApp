@@ -1,0 +1,487 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	background:url('../img/bg.jpg') repeat #e1f0f6;
+}
+
+
+body{
+	font:14px/1.3 'Open Sans Condensed', sans-serif;
+}
+
+a, a:visited {
+	outline:none;
+	color:#1c4f64;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header{
+	display: block;
+}
+
+
+/*----------------------------
+	The Header
+-----------------------------*/
+
+
+header h1{
+	text-align:center;
+	font: normal 52px 'Oleo+Script', cursive;
+	color:#518191;
+	padding-top:60px;
+	text-shadow:1px 1px 1px rgba(0,0,0,0.1);
+}
+
+
+/*----------------------------
+	The Cloud Background
+-----------------------------*/
+
+
+#clouds{
+	background:url('../img/cloud1.png') no-repeat;
+	height: 145px;
+	left: 50%;
+	position: absolute;
+	top: 250px;
+	margin-left: -542px;
+	width: 222px;
+	z-index: -1;
+}
+
+#clouds:before{
+	content:'';
+	background:url('../img/cloud2.png') no-repeat;
+	height: 102px;
+	right: -710px;
+	position: absolute;
+	top: -125px;
+	width: 156px;
+}
+
+#clouds:after{
+	content:'';
+	background:url('../img/cloud3.png') no-repeat;
+	height: 74px;
+	right: -750px;
+	position: absolute;
+	top: 325px;
+	width: 114px;
+}
+
+
+/*----------------------------
+	The Weather Div
+-----------------------------*/
+
+
+#weather{
+	position:relative;
+	width:494px;
+	height:407px;
+	margin: 50px auto 25px;
+	overflow:hidden;
+}
+
+#weather:before{
+	background: url("../img/preloader.gif") no-repeat center center #111;
+	border: 1px solid #000;
+	border-radius: 50% 50% 50% 50%;
+	box-shadow: 0 1px 2px #444;
+	content: "";
+	height: 44px;
+	left: 50%;
+	margin: -22px 0 0 -22px;
+	opacity: 0.7;
+	position: absolute;
+	top: 50%;
+	width: 44px;
+}
+
+#weather.error:before{
+	display:none;
+}
+
+#weather.error{
+	text-align:center;
+	font-size: 20px;
+}
+
+#weather.loaded #scroller,
+#weather.loaded .arrow{
+	display:block
+}
+
+#weather.loaded:before{
+	display:none;
+}
+
+#weather.loaded{
+	border-radius:3px;
+	background:url('../img/weather_bg.jpg') no-repeat;
+	box-shadow:0 0 5px rgba(0,0,0,0.15);
+}
+
+#weather.first a.previous,
+#weather.last a.next{
+	display:none;
+}
+
+
+/*----------------------------
+	The Scroller
+-----------------------------*/
+
+
+#scroller{
+	position:absolute;
+	list-style:none;
+	width:100%;
+	height: 336px;
+	white-space:nowrap;
+	top:0;
+	left:0;
+}
+
+#scroller li{
+	position:relative;
+	width:100%;
+	height:100%;
+	display:inline-block;
+	text-align:center;
+}
+
+#scroller li img{
+	display:block;
+	margin: 35px auto 0;
+}
+
+#scroller li .day{
+	color:#dcf0f6;
+	font-size:15px;
+	padding-top: 20px;
+	text-shadow:1px 1px 0 rgba(0,0,0,0.15);
+}
+
+#scroller li .day b{
+	font-weight:normal;
+	color:#0f3642;
+}
+
+#scroller li .cond{
+	bottom: -52px;
+	color: #424242;
+	font-size: 24px;
+	position: absolute;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+	width: 100%;
+}
+
+#scroller li .cond b{
+	text-transform:uppercase;
+}
+
+#scroller, .arrow{
+	display:none;
+}
+
+
+/*------------------------------
+	The Next/Previous arrows
+-------------------------------*/
+
+
+.arrow{
+	background:url('../img/arrows.png') no-repeat;
+	width:34px;
+	height:45px;
+	position:absolute;
+	top:50%;
+	margin-top:-45px;
+	opacity:0.6;
+	overflow:hidden;
+	text-indent:-99999px;
+}
+
+.arrow:hover{
+	opacity:1;
+}
+
+.arrow.previous{
+	left:60px;
+}
+
+.arrow.next{
+	background-position:top right;
+	right:60px;
+}
+
+
+/*----------------------------
+	The Location Div
+-----------------------------*/
+
+
+p.location{
+	font-weight:bold;
+	font-size:28px;
+	color:#296c81;
+	text-align:center;
+	margin-bottom:80px;
+}
+
+p.location b{
+	color:#569cb3;
+}
+
+
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	font:14px/1.3 'Segoe UI',Arial, sans-serif;
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}
+
+
+
+/* WEATHER CSS */
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color : #61B4CF;
+}
+body {
+    font: 14px/1.3 'Open Sans Condensed',sans-serif;
+    width: 300px;
+}
+a, a:visited {
+    color: #1C4F64;
+    outline: medium none;
+}
+a:hover {
+    text-decoration: none;
+}
+section, footer, header {
+    display: block;
+}
+header h1 {
+    color: #518191;
+    font: 32px 'Oleo+script',cursive;
+    padding-top: 0px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+#clouds {
+    background: url("../assets/img/cloud1.png") no-repeat scroll 0 0 transparent;
+    height: 145px;
+    left: 50%;
+    margin-left: -542px;
+    position: absolute;
+    top: 250px;
+    width: 222px;
+    z-index: -1;
+}
+#clouds:before {
+    background: url("../assets/img/cloud2.png") no-repeat scroll 0 0 transparent;
+    content: "";
+    height: 102px;
+    position: absolute;
+    right: -710px;
+    top: -125px;
+    width: 156px;
+}
+#clouds:after {
+    background: url("../assets/img/cloud3.png") no-repeat scroll 0 0 transparent;
+    content: "";
+    height: 74px;
+    position: absolute;
+    right: -750px;
+    top: 325px;
+    width: 114px;
+}
+#weather {
+    height: 300px;
+    margin: 50px auto 25px;
+    overflow: hidden;
+    position: relative;
+    width: 320px;
+}
+#weather:before {
+    background: url("../assets/img/preloader.gif") no-repeat scroll center center #111111;
+    border: 1px solid #000000;
+    border-radius: 50% 50% 50% 50%;
+    box-shadow: 0 1px 2px #444444;
+    content: "";
+    height: 44px;
+    left: 50%;
+    margin: -22px 0 0 -22px;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    width: 44px;
+}
+#weather.error:before {
+    display: none;
+}
+#weather.error {
+    font-size: 20px;
+    text-align: center;
+}
+#weather.loaded #scroller, #weather.loaded .arrow {
+    display: block;
+}
+#weather.loaded:before {
+    display: none;
+}
+#weather.loaded {
+
+}
+#weather.first a.previous, #weather.last a.next {
+    display: none;
+}
+#scroller {
+    height: 220px;
+    left: 0;
+    list-style: none outside none;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 100%;
+}
+#scroller li {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+#scroller li img {
+    display: block;
+    margin: 35px auto 0;
+    height: 150px;
+}
+#scroller li .day {
+    color: #DCF0F6;
+    font-size: 15px;
+    padding-top: 20px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
+#scroller li .day b {
+    color: #0F3642;
+    font-weight: normal;
+}
+#scroller li .cond {
+    bottom: -52px;
+    color: #424242;
+    font-size: 24px;
+    position: absolute;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+    width: 100%;
+}
+#scroller li .cond b {
+    text-transform: uppercase;
+}
+#scroller, .arrow {
+    display: none;
+}
+.arrow {
+    background: url("../assets/img/arrows.png") no-repeat scroll 0 0 transparent;
+    height: 45px;
+    margin-top: -45px;
+    opacity: 0.6;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -99999px;
+    top: 50%;
+    width: 34px;
+}
+.arrow:hover {
+    opacity: 1;
+}
+.arrow.previous {
+    left: 20px;
+}
+.arrow.next {
+    background-position: right top;
+    right: 20px;
+}
+p.location {
+    color: #296C81;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 80px;
+    text-align: center;
+}
+p.location b {
+    color: #569CB3;
+}
+
